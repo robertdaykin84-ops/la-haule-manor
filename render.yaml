@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: la-haule-manor
+    runtime: static
+    buildCommand: echo "Static site - no build needed"
+    staticPublishPath: .
+    routes:
+      - type: rewrite
+        source: /
+        destination: /option-a.html
+    headers:
+      - path: /assets/*
+        name: Cache-Control
+        value: public, max-age=2592000
