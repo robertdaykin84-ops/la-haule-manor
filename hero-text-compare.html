@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero Text Approaches — La Haule Manor</title>
+
+    <!-- Google Fonts (same as option-a) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ocean: '#2563EB',
+                        'ocean-dark': '#1D4ED8',
+                        sand: '#F5F0E8',
+                        slate: '#475569',
+                        'dark-slate': '#1E293B',
+                    },
+                    fontFamily: {
+                        lora: ['Lora', 'Georgia', 'serif'],
+                        raleway: ['Raleway', 'Helvetica Neue', 'sans-serif'],
+                        script: ['Great Vibes', 'cursive'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        *, *::before, *::after { box-sizing: border-box; }
+        body {
+            font-family: 'Raleway', 'Helvetica Neue', sans-serif;
+            color: #475569;
+            margin: 0;
+            padding: 0;
+        }
+
+        .hero-panel {
+            background-image: url('assets/misc/hero-clean.jpg');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+        }
+
+        /* ─── Approach 1: Text Stroke / Outline ─── */
+        .approach-1 h1 {
+            -webkit-text-stroke: 1px rgba(0, 0, 0, 0.35);
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+        }
+        .approach-1 p {
+            -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.3);
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.4);
+        }
+
+        /* ─── Approach 2: Frosted Glass Backdrop ─── */
+        .glass-backdrop {
+            background: rgba(0, 0, 0, 0.25);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 1rem;
+            padding: 2.5rem 3rem;
+        }
+        .approach-2 h1 {
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+        }
+        .approach-2 p {
+            text-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        /* ─── Approach 3: Stronger Gradient Overlay ─── */
+        .approach-3-overlay {
+            background: linear-gradient(
+                to bottom,
+                rgba(0, 0, 0, 0.35) 0%,
+                rgba(0, 0, 0, 0.45) 30%,
+                rgba(0, 0, 0, 0.35) 70%,
+                rgba(37, 99, 235, 0.25) 100%
+            );
+        }
+        .approach-3 h1 {
+            text-shadow: 0 3px 16px rgba(0, 0, 0, 0.6), 0 1px 4px rgba(0, 0, 0, 0.4);
+        }
+        .approach-3 p {
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Label badge */
+        .approach-label {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            z-index: 20;
+            background: rgba(255, 255, 255, 0.95);
+            color: #1E293B;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        /* Divider between sections */
+        .section-divider {
+            background: #F5F0E8;
+            padding: 1.5rem 2rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Page Header -->
+<div class="bg-dark-slate text-white py-6 px-6 text-center">
+    <h1 class="font-lora text-2xl md:text-3xl font-semibold mb-2">Hero Text — 3 Approaches</h1>
+    <p class="font-raleway text-white/70 text-sm max-w-xl mx-auto">Compare how each technique improves text readability against the hero image. Scroll down to see all three.</p>
+</div>
+
+
+<!-- ════════════════════════════════════════════════
+     APPROACH 1: Text Stroke / Outline
+     ════════════════════════════════════════════════ -->
+<div class="section-divider">
+    <span class="inline-block bg-ocean text-white text-xs font-bold tracking-widest uppercase px-4 py-1.5 rounded-full">Approach 1</span>
+    <h2 class="font-lora text-dark-slate text-xl mt-2 mb-1">Text Stroke / Outline</h2>
+    <p class="text-slate text-sm">Thin black outline around each letter using <code>-webkit-text-stroke</code>. Subtle and doesn't obscure the image.</p>
+</div>
+
+<section class="hero-panel approach-1">
+    <!-- Same gradient as current option-a -->
+    <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-ocean/30"></div>
+
+    <span class="approach-label">Approach 1 — Text Stroke</span>
+
+    <div class="relative z-10 text-center px-4 max-w-4xl mx-auto py-20">
+        <h1 class="font-lora text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-tight mb-6">
+            Your Jersey Escape Awaits
+        </h1>
+        <p class="font-raleway text-white text-xl sm:text-2xl md:text-3xl font-normal leading-relaxed max-w-3xl mx-auto">
+            A luxury Georgian manor with stunning bay views, heated pool, and the warmest welcome on the island
+        </p>
+    </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════
+     APPROACH 2: Frosted Glass Backdrop
+     ════════════════════════════════════════════════ -->
+<div class="section-divider">
+    <span class="inline-block bg-ocean text-white text-xs font-bold tracking-widest uppercase px-4 py-1.5 rounded-full">Approach 2</span>
+    <h2 class="font-lora text-dark-slate text-xl mt-2 mb-1">Frosted Glass Backdrop</h2>
+    <p class="text-slate text-sm">Semi-transparent blurred panel behind the text. Modern feel, very high readability.</p>
+</div>
+
+<section class="hero-panel approach-2">
+    <!-- Lighter gradient since the glass provides contrast -->
+    <div class="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-ocean/20"></div>
+
+    <span class="approach-label">Approach 2 — Frosted Glass</span>
+
+    <div class="relative z-10 text-center px-4 max-w-4xl mx-auto py-20">
+        <div class="glass-backdrop">
+            <h1 class="font-lora text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-tight mb-6">
+                Your Jersey Escape Awaits
+            </h1>
+            <p class="font-raleway text-white text-xl sm:text-2xl md:text-3xl font-normal leading-relaxed max-w-3xl mx-auto">
+                A luxury Georgian manor with stunning bay views, heated pool, and the warmest welcome on the island
+            </p>
+        </div>
+    </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════
+     APPROACH 3: Enhanced Gradient Overlay
+     ════════════════════════════════════════════════ -->
+<div class="section-divider">
+    <span class="inline-block bg-ocean text-white text-xs font-bold tracking-widest uppercase px-4 py-1.5 rounded-full">Approach 3</span>
+    <h2 class="font-lora text-dark-slate text-xl mt-2 mb-1">Enhanced Gradient Overlay</h2>
+    <p class="text-slate text-sm">Stronger dark-to-ocean gradient over the image. No visible container — text naturally pops against the darker background.</p>
+</div>
+
+<section class="hero-panel approach-3">
+    <!-- Stronger gradient overlay for more contrast -->
+    <div class="absolute inset-0 approach-3-overlay"></div>
+
+    <span class="approach-label">Approach 3 — Gradient Overlay</span>
+
+    <div class="relative z-10 text-center px-4 max-w-4xl mx-auto py-20">
+        <h1 class="font-lora text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-tight mb-6">
+            Your Jersey Escape Awaits
+        </h1>
+        <p class="font-raleway text-white text-xl sm:text-2xl md:text-3xl font-normal leading-relaxed max-w-3xl mx-auto">
+            A luxury Georgian manor with stunning bay views, heated pool, and the warmest welcome on the island
+        </p>
+    </div>
+</section>
+
+
+<!-- Footer -->
+<div class="bg-dark-slate text-white/60 text-center py-6 px-4 text-sm font-raleway">
+    <p><a href="option-a.html" class="text-ocean hover:underline">Back to Option A</a></p>
+</div>
+
+</body>
+</html>

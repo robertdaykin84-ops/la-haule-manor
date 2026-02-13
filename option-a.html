@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Haule Manor — Classic Luxury Since 1796</title>
+    <meta name="description" content="La Haule Manor, a 5-star Georgian manor hotel in St Brelade, Jersey. Classic luxury accommodation with stunning bay views since 1796.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&family=Great+Vibes&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#1A1F36',
+                        gold: '#C5A572',
+                        'gold-light': '#D4BA8A',
+                        cream: '#FAF8F5',
+                        charcoal: '#2D2D2D',
+                    },
+                    fontFamily: {
+                        heading: ['Cormorant Garamond', 'Georgia', 'serif'],
+                        body: ['Montserrat', 'Helvetica Neue', 'sans-serif'],
+                        script: ['Great Vibes', 'cursive'],
+                        lora: ['Lora', 'Georgia', 'serif'],
+                        raleway: ['Raleway', 'Helvetica Neue', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Base resets */
+        *, *::before, *::after { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Montserrat', 'Helvetica Neue', sans-serif;
+            color: #2D2D2D;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Headings */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            color: #1A1F36;
+        }
+
+        /* Parallax hero */
+        .hero-section {
+            background-image: url('assets/misc/hero-clean.jpg');
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        @supports (-webkit-touch-callout: none) {
+            .hero-section {
+                background-attachment: scroll;
+            }
+        }
+
+        /* Navbar transitions */
+        .nav-transparent {
+            background: transparent;
+            box-shadow: none;
+        }
+        .nav-scrolled {
+            background: rgba(26, 31, 54, 0.97);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(10px);
+        }
+        .nav-transparent .nav-logo { color: #FFFFFF; }
+        .nav-scrolled .nav-logo { color: #FFFFFF; }
+        .nav-transparent .nav-link { color: rgba(255, 255, 255, 0.85); }
+        .nav-transparent .nav-link:hover { color: #C5A572; }
+        .nav-scrolled .nav-link { color: rgba(255, 255, 255, 0.85); }
+        .nav-scrolled .nav-link:hover { color: #C5A572; }
+        .nav-transparent .nav-phone { color: rgba(255, 255, 255, 0.8); }
+        .nav-scrolled .nav-phone { color: rgba(255, 255, 255, 0.8); }
+        .nav-transparent .mobile-toggle svg { color: #FFFFFF; }
+        .nav-scrolled .mobile-toggle svg { color: #FFFFFF; }
+
+        nav {
+            transition: background 0.35s ease, box-shadow 0.35s ease;
+        }
+        .nav-link {
+            transition: color 0.2s ease;
+        }
+        .nav-logo {
+            transition: color 0.35s ease;
+        }
+        .nav-phone {
+            transition: color 0.35s ease;
+        }
+
+        /* Gold accent line */
+        .gold-line {
+            width: 60px;
+            height: 2px;
+            background: #C5A572;
+        }
+
+        /* Card hover lift */
+        .card-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-lift:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Gallery image hover */
+        .gallery-img {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .gallery-img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Gold button */
+        .btn-gold {
+            background: #C5A572;
+            color: #FFFFFF;
+            transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .btn-gold:hover {
+            background: #B8955F;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 14px rgba(197, 165, 114, 0.4);
+        }
+
+        /* Navy button */
+        .btn-navy {
+            background: #1A1F36;
+            color: #FFFFFF;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+        .btn-navy:hover {
+            background: #252B47;
+            transform: translateY(-1px);
+        }
+
+        /* Star rating */
+        .star { color: #C5A572; }
+
+        /* Switcher tooltip */
+        .switcher-btn { position: relative; }
+        .switcher-btn .tooltip {
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            bottom: calc(100% + 8px);
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+            background: #1A1F36;
+            color: #FFFFFF;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-family: 'Montserrat', sans-serif;
+            transition: opacity 0.2s ease, visibility 0.2s ease;
+            pointer-events: none;
+            z-index: 100;
+        }
+        .switcher-btn .tooltip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: #1A1F36;
+        }
+        .switcher-btn:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Mobile overlay menu */
+        .mobile-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 60;
+            background: rgba(26, 31, 54, 0.98);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.35s ease, visibility 0.35s ease;
+        }
+        .mobile-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+        .mobile-overlay .close-btn {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.25rem;
+        }
+
+        /* Section heading animation */
+        .section-heading {
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        /* Form inputs */
+        .form-input {
+            border: 1px solid #D4BA8A;
+            border-radius: 4px;
+            padding: 10px 14px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            color: #1A1F36;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            width: 100%;
+            outline: none;
+            background: #FFFFFF;
+        }
+        .form-input:focus {
+            border-color: #C5A572;
+            box-shadow: 0 0 0 3px rgba(197, 165, 114, 0.2);
+        }
+        .form-input::placeholder { color: #999; }
+
+        /* Ensure images cover */
+        .img-cover {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Elegant divider */
+        .divider-diamond {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            justify-content: center;
+        }
+        .divider-diamond::before,
+        .divider-diamond::after {
+            content: '';
+            width: 40px;
+            height: 1px;
+            background: #C5A572;
+        }
+        .divider-diamond span {
+            width: 8px;
+            height: 8px;
+            background: #C5A572;
+            transform: rotate(45deg);
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-cream">
+
+<!-- ===== 1. NAVIGATION ===== -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 nav-transparent">
+    <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Desktop Nav -->
+        <div class="flex items-center justify-between h-[72px]">
+            <!-- Logo -->
+            <a href="#" class="nav-logo flex-shrink-0 mr-6">
+                <span class="font-script text-white text-[1.7rem] xl:text-[1.85rem] leading-none">La Haule Manor</span>
+            </a>
+
+            <!-- Desktop links (centered) -->
+            <div class="hidden xl:flex items-center gap-5 flex-1 justify-center">
+                <a href="#" class="nav-link text-[0.65rem] font-semibold tracking-[0.14em] uppercase whitespace-nowrap">Home</a>
+                <a href="#accommodation" class="nav-link text-[0.65rem] font-semibold tracking-[0.14em] uppercase whitespace-nowrap">Rooms</a>
+                <a href="#self-catering" class="nav-link text-[0.65rem] font-semibold tracking-[0.14em] uppercase whitespace-nowrap">Self Catering</a>
+                <a href="#weddings" class="nav-link text-[0.65rem] font-semibold tracking-[0.14em] uppercase whitespace-nowrap">Weddings</a>
+                <a href="#dining" class="nav-link text-[0.65rem] font-semibold tracking-[0.14em] uppercase whitespace-nowrap">Dining</a>
+                <a href="#gallery" class="nav-link text-[0.65rem] font-semibold tracking-[0.14em] uppercase whitespace-nowrap">Gallery</a>
+                <a href="#things-to-do" class="nav-link text-[0.65rem] font-semibold tracking-[0.14em] uppercase whitespace-nowrap">Things To Do</a>
+                <a href="#location" class="nav-link text-[0.65rem] font-semibold tracking-[0.14em] uppercase whitespace-nowrap">Location</a>
+                <a href="#contact" class="nav-link text-[0.65rem] font-semibold tracking-[0.14em] uppercase whitespace-nowrap">Contact</a>
+            </div>
+
+            <!-- Phone + Book Now (right) -->
+            <div class="flex items-center gap-4 ml-6 flex-shrink-0">
+                <a href="tel:01534746778" class="nav-phone hidden xl:flex items-center gap-1.5 text-[0.65rem] tracking-[0.14em] whitespace-nowrap">
+                    <i data-lucide="phone" class="w-3.5 h-3.5"></i>01534 746778
+                </a>
+                <a href="#booking" class="hidden xl:inline-block btn-gold px-5 py-2 rounded text-[0.65rem] font-semibold tracking-[0.14em] uppercase whitespace-nowrap">Book Now</a>
+                <!-- Mobile toggle -->
+                <button id="mobileToggle" class="xl:hidden mobile-toggle p-2 -mr-2 cursor-pointer" aria-label="Toggle navigation menu">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Mobile overlay menu -->
+<div id="mobileOverlay" class="mobile-overlay">
+    <button id="mobileClose" class="close-btn text-white p-3 cursor-pointer" aria-label="Close menu">
+        <i data-lucide="x" class="w-7 h-7"></i>
+    </button>
+    <div class="text-center">
+        <a href="#" class="font-script text-gold text-3xl block mb-10">La Haule Manor</a>
+        <nav class="flex flex-col gap-6">
+            <a href="#" class="mobile-nav-link text-white text-lg font-heading tracking-wider hover:text-gold transition-colors duration-200">Home</a>
+            <a href="#accommodation" class="mobile-nav-link text-white text-lg font-heading tracking-wider hover:text-gold transition-colors duration-200">Rooms</a>
+            <a href="#self-catering" class="mobile-nav-link text-white text-lg font-heading tracking-wider hover:text-gold transition-colors duration-200">Self Catering</a>
+            <a href="#weddings" class="mobile-nav-link text-white text-lg font-heading tracking-wider hover:text-gold transition-colors duration-200">Weddings</a>
+            <a href="#dining" class="mobile-nav-link text-white text-lg font-heading tracking-wider hover:text-gold transition-colors duration-200">Dining</a>
+            <a href="#gallery" class="mobile-nav-link text-white text-lg font-heading tracking-wider hover:text-gold transition-colors duration-200">Gallery</a>
+            <a href="#things-to-do" class="mobile-nav-link text-white text-lg font-heading tracking-wider hover:text-gold transition-colors duration-200">Things To Do</a>
+            <a href="#location" class="mobile-nav-link text-white text-lg font-heading tracking-wider hover:text-gold transition-colors duration-200">Location</a>
+            <a href="#contact" class="mobile-nav-link text-white text-lg font-heading tracking-wider hover:text-gold transition-colors duration-200">Contact</a>
+        </nav>
+        <div class="mt-10 flex flex-col items-center gap-4">
+            <a href="tel:01534746778" class="text-white/80 text-sm flex items-center gap-2">
+                <i data-lucide="phone" class="w-4 h-4"></i> 01534 746778
+            </a>
+            <a href="#booking" class="mobile-nav-link btn-gold px-8 py-3 rounded text-sm font-semibold tracking-wider uppercase">Book Now</a>
+        </div>
+    </div>
+</div>
+
+
+<!-- ===== 2. HERO ===== -->
+<section class="hero-section relative flex items-center justify-center min-h-screen">
+    <!-- Dark overlay for luxury feel -->
+    <div class="absolute inset-0 bg-gradient-to-b from-navy/20 via-transparent to-navy/30"></div>
+
+    <!-- Hero content -->
+    <div class="relative z-10 text-center px-4 max-w-4xl mx-auto pt-20 pb-48 md:pb-56">
+        <h1 class="font-lora text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-tight mb-6" style="-webkit-text-stroke: 1px rgba(0,0,0,0.35); text-shadow: 0 2px 12px rgba(0,0,0,0.5);">
+            Your Jersey Escape Awaits
+        </h1>
+        <p class="font-raleway text-white text-xl sm:text-2xl md:text-3xl font-normal leading-relaxed max-w-3xl mx-auto" style="-webkit-text-stroke: 0.5px rgba(0,0,0,0.3); text-shadow: 0 2px 8px rgba(0,0,0,0.5), 0 1px 3px rgba(0,0,0,0.4);">
+            A luxury Georgian manor with stunning bay views, heated pool, and the warmest welcome on the island
+        </p>
+    </div>
+
+    <!-- ===== 3. BOOKING WIDGET ===== -->
+    <div id="booking" class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-full max-w-4xl px-4 z-20">
+        <div class="bg-white rounded shadow-xl p-6 md:p-8 border border-gold/20">
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4 items-end">
+                <div class="col-span-1">
+                    <label class="block text-[0.65rem] font-semibold text-navy uppercase tracking-[0.12em] mb-2">Arrival</label>
+                    <input type="date" class="form-input text-sm">
+                </div>
+                <div class="col-span-1">
+                    <label class="block text-[0.65rem] font-semibold text-navy uppercase tracking-[0.12em] mb-2">Departure</label>
+                    <input type="date" class="form-input text-sm">
+                </div>
+                <div class="col-span-1">
+                    <label class="block text-[0.65rem] font-semibold text-navy uppercase tracking-[0.12em] mb-2">Guests</label>
+                    <select class="form-input text-sm appearance-none">
+                        <option>1 Guest</option>
+                        <option>2 Guests</option>
+                        <option>3 Guests</option>
+                        <option>4 Guests</option>
+                        <option>5+ Guests</option>
+                    </select>
+                </div>
+                <div class="col-span-1">
+                    <label class="block text-[0.65rem] font-semibold text-navy uppercase tracking-[0.12em] mb-2">Rooms</label>
+                    <select class="form-input text-sm appearance-none">
+                        <option>1 Room</option>
+                        <option>2 Rooms</option>
+                        <option>3 Rooms</option>
+                        <option>4+ Rooms</option>
+                    </select>
+                </div>
+                <div class="col-span-2 md:col-span-1">
+                    <button class="btn-gold w-full py-3 rounded text-[0.7rem] font-semibold tracking-[0.12em] uppercase cursor-pointer">
+                        Check Availability
+                    </button>
+                </div>
+            </div>
+            <p class="text-center text-gold text-xs font-medium mt-4 tracking-wide">Book direct &mdash; best rates guaranteed</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- ===== 4. WELCOME ===== -->
+<section class="bg-cream pt-40 md:pt-44 pb-20 md:pb-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center section-heading">
+            <!-- Text -->
+            <div>
+                <p class="font-script text-gold text-xl mb-2">Welcome</p>
+                <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-semibold text-navy mb-4 leading-tight">A Georgian Treasure on St Aubin's Bay</h2>
+                <div class="gold-line mb-8"></div>
+                <div class="space-y-5 text-charcoal leading-relaxed text-base md:text-[1.05rem]">
+                    <p>
+                        Perched above the golden sweep of St Aubin&rsquo;s Bay, La Haule Manor has been welcoming guests to Jersey since 1796. Our handsome Georgian manor blends timeless elegance with contemporary comfort, earning a coveted 5-star rating from Visit Jersey.
+                    </p>
+                    <p>
+                        Every stay is personal here. From the moment you arrive, our small, dedicated team ensures you feel at home &mdash; whether you&rsquo;re unwinding by our heated outdoor pool with panoramic bay views, savouring a locally sourced breakfast, or simply breathing in the sea air from your private balcony.
+                    </p>
+                    <p>
+                        With just 17 individually designed rooms, La Haule Manor offers the intimacy of a boutique retreat with the service standards of a luxury hotel. This is Jersey as it should be experienced &mdash; unhurried, beautiful, and distinctly personal.
+                    </p>
+                </div>
+                <div class="flex flex-wrap items-center gap-6 mt-8">
+                    <div class="flex items-center gap-2 text-sm font-medium text-navy">
+                        <i data-lucide="star" class="w-5 h-5 text-gold fill-gold"></i> 5-Star Rated
+                    </div>
+                    <div class="flex items-center gap-2 text-sm font-medium text-navy">
+                        <i data-lucide="calendar" class="w-5 h-5 text-gold"></i> Since 1796
+                    </div>
+                    <div class="flex items-center gap-2 text-sm font-medium text-navy">
+                        <i data-lucide="waves" class="w-5 h-5 text-gold"></i> Bay Views
+                    </div>
+                </div>
+            </div>
+            <!-- Image -->
+            <div class="rounded overflow-hidden shadow-lg aspect-[4/3]">
+                <img src="assets/misc/hotel-front.jpg" alt="La Haule Manor facade — a beautiful Georgian manor hotel overlooking St Aubin's Bay" class="img-cover" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ===== 5. ACCOMMODATION ===== -->
+<section id="accommodation" class="bg-white py-20 md:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14 section-heading">
+            <p class="font-script text-gold text-xl mb-2">Accommodation</p>
+            <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-semibold text-navy mb-4">Our Rooms &amp; Suites</h2>
+            <div class="gold-line mx-auto mb-6"></div>
+            <p class="text-charcoal text-base md:text-lg max-w-2xl mx-auto">
+                17 individually designed rooms, each reflecting the coastal beauty and Georgian heritage of our manor.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 section-heading">
+            <!-- Standard Room -->
+            <div class="bg-cream rounded shadow-md card-lift overflow-hidden flex flex-col cursor-pointer">
+                <div class="aspect-[4/3] overflow-hidden">
+                    <img src="assets/rooms/standard-1.jpg" alt="Standard Room with comfortable furnishings and warm decor" class="img-cover transition-transform duration-300 hover:scale-105" loading="lazy">
+                </div>
+                <div class="p-5 flex flex-col flex-1">
+                    <h3 class="font-heading text-xl font-semibold text-navy mb-1">Standard</h3>
+                    <p class="text-gold font-semibold text-lg mb-3">From &pound;187<span class="text-sm font-normal text-charcoal/60">/night</span></p>
+                    <ul class="space-y-1.5 text-xs text-charcoal/80 flex-1 mb-4">
+                        <li class="flex items-center gap-2"><i data-lucide="bed-double" class="w-3.5 h-3.5 text-gold"></i> King-size or twin beds</li>
+                        <li class="flex items-center gap-2"><i data-lucide="bath" class="w-3.5 h-3.5 text-gold"></i> Ensuite bathroom</li>
+                        <li class="flex items-center gap-2"><i data-lucide="wifi" class="w-3.5 h-3.5 text-gold"></i> Complimentary Wi-Fi</li>
+                        <li class="flex items-center gap-2"><i data-lucide="coffee" class="w-3.5 h-3.5 text-gold"></i> Tea &amp; coffee facilities</li>
+                    </ul>
+                    <a href="#" class="btn-navy text-center py-2.5 rounded text-xs font-semibold tracking-wider uppercase block cursor-pointer">View Room</a>
+                </div>
+            </div>
+
+            <!-- Superior Room -->
+            <div class="bg-cream rounded shadow-md card-lift overflow-hidden flex flex-col cursor-pointer">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="assets/rooms/superior-1.jpg" alt="Superior Room with garden or partial sea view" class="img-cover transition-transform duration-300 hover:scale-105" loading="lazy">
+                    <span class="absolute top-3 right-3 bg-gold text-white text-[0.6rem] font-semibold px-3 py-1 rounded tracking-wider uppercase">Popular</span>
+                </div>
+                <div class="p-5 flex flex-col flex-1">
+                    <h3 class="font-heading text-xl font-semibold text-navy mb-1">Superior</h3>
+                    <p class="text-gold font-semibold text-lg mb-3">From &pound;209<span class="text-sm font-normal text-charcoal/60">/night</span></p>
+                    <ul class="space-y-1.5 text-xs text-charcoal/80 flex-1 mb-4">
+                        <li class="flex items-center gap-2"><i data-lucide="mountain" class="w-3.5 h-3.5 text-gold"></i> Garden or partial sea view</li>
+                        <li class="flex items-center gap-2"><i data-lucide="bed-double" class="w-3.5 h-3.5 text-gold"></i> Super king-size bed</li>
+                        <li class="flex items-center gap-2"><i data-lucide="bath" class="w-3.5 h-3.5 text-gold"></i> Rainfall shower</li>
+                        <li class="flex items-center gap-2"><i data-lucide="armchair" class="w-3.5 h-3.5 text-gold"></i> Seating area</li>
+                    </ul>
+                    <a href="#" class="btn-navy text-center py-2.5 rounded text-xs font-semibold tracking-wider uppercase block cursor-pointer">View Room</a>
+                </div>
+            </div>
+
+            <!-- Suite Sea View -->
+            <div class="bg-cream rounded shadow-md card-lift overflow-hidden flex flex-col cursor-pointer">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="assets/rooms/suite-1.jpg" alt="Suite with panoramic sea views over St Aubin's Bay" class="img-cover transition-transform duration-300 hover:scale-105" loading="lazy">
+                    <span class="absolute top-3 right-3 bg-navy text-gold text-[0.6rem] font-semibold px-3 py-1 rounded tracking-wider uppercase">Premium</span>
+                </div>
+                <div class="p-5 flex flex-col flex-1">
+                    <h3 class="font-heading text-xl font-semibold text-navy mb-1">Sea View Suite</h3>
+                    <p class="text-gold font-semibold text-lg mb-3">From &pound;275<span class="text-sm font-normal text-charcoal/60">/night</span></p>
+                    <ul class="space-y-1.5 text-xs text-charcoal/80 flex-1 mb-4">
+                        <li class="flex items-center gap-2"><i data-lucide="waves" class="w-3.5 h-3.5 text-gold"></i> Panoramic bay views</li>
+                        <li class="flex items-center gap-2"><i data-lucide="sofa" class="w-3.5 h-3.5 text-gold"></i> Separate living area</li>
+                        <li class="flex items-center gap-2"><i data-lucide="wine" class="w-3.5 h-3.5 text-gold"></i> Welcome champagne</li>
+                        <li class="flex items-center gap-2"><i data-lucide="sun" class="w-3.5 h-3.5 text-gold"></i> Private balcony</li>
+                    </ul>
+                    <a href="#" class="btn-navy text-center py-2.5 rounded text-xs font-semibold tracking-wider uppercase block cursor-pointer">View Suite</a>
+                </div>
+            </div>
+
+            <!-- Self Catering -->
+            <div id="self-catering" class="bg-cream rounded shadow-md card-lift overflow-hidden flex flex-col cursor-pointer">
+                <div class="aspect-[4/3] overflow-hidden">
+                    <img src="assets/rooms/self-catering-1.jpg" alt="Self catering apartment with full kitchen and living area" class="img-cover transition-transform duration-300 hover:scale-105" loading="lazy">
+                </div>
+                <div class="p-5 flex flex-col flex-1">
+                    <h3 class="font-heading text-xl font-semibold text-navy mb-1">Self Catering</h3>
+                    <p class="text-gold font-semibold text-lg mb-3">From &pound;165<span class="text-sm font-normal text-charcoal/60">/night</span></p>
+                    <ul class="space-y-1.5 text-xs text-charcoal/80 flex-1 mb-4">
+                        <li class="flex items-center gap-2"><i data-lucide="chef-hat" class="w-3.5 h-3.5 text-gold"></i> Full kitchen</li>
+                        <li class="flex items-center gap-2"><i data-lucide="sofa" class="w-3.5 h-3.5 text-gold"></i> Living &amp; dining area</li>
+                        <li class="flex items-center gap-2"><i data-lucide="car" class="w-3.5 h-3.5 text-gold"></i> Free parking</li>
+                        <li class="flex items-center gap-2"><i data-lucide="waves" class="w-3.5 h-3.5 text-gold"></i> Pool access</li>
+                    </ul>
+                    <a href="#" class="btn-navy text-center py-2.5 rounded text-xs font-semibold tracking-wider uppercase block cursor-pointer">View Apartment</a>
+                </div>
+            </div>
+        </div>
+
+        <p class="text-center text-gold text-sm font-medium mt-8 flex items-center justify-center gap-2">
+            <i data-lucide="utensils" class="w-4 h-4"></i>
+            All hotel room rates include full English breakfast
+        </p>
+    </div>
+</section>
+
+
+<!-- ===== 6. WEDDINGS ===== -->
+<section id="weddings" class="relative">
+    <div class="grid lg:grid-cols-2 min-h-[600px] lg:min-h-[700px]">
+        <!-- Left image -->
+        <div class="relative min-h-[400px] lg:min-h-0">
+            <img src="assets/gallery/gallery-9.jpg" alt="Wedding celebrations at La Haule Manor with bay views and Elizabeth Castle backdrop" class="absolute inset-0 img-cover" loading="lazy">
+            <div class="absolute inset-0 bg-navy/20"></div>
+        </div>
+        <!-- Right content -->
+        <div class="bg-navy flex items-center">
+            <div class="p-8 md:p-12 lg:p-16 max-w-xl section-heading">
+                <p class="font-script text-gold text-xl mb-2">Celebrations</p>
+                <h2 class="font-heading text-3xl sm:text-4xl font-semibold text-white mb-4">Your Dream Wedding</h2>
+                <div class="gold-line mb-8"></div>
+                <div class="space-y-4 text-white/80 leading-relaxed mb-8">
+                    <p>
+                        Imagine exchanging vows with the sun setting over St Aubin&rsquo;s Bay, Elizabeth Castle silhouetted against a golden sky. At La Haule Manor, your wedding is exclusively yours &mdash; the entire manor, gardens, and our devoted team.
+                    </p>
+                    <p>
+                        From intimate ceremonies for 20 to grand celebrations for up to 120 guests, our tailored wedding packages include bespoke menus crafted with the finest Jersey produce, a dedicated wedding coordinator, and 17 individually styled rooms for your party.
+                    </p>
+                </div>
+
+                <!-- Wedding enquiry form -->
+                <form class="space-y-4" onsubmit="event.preventDefault();">
+                    <div class="grid grid-cols-2 gap-4">
+                        <input type="text" class="form-input bg-white/10 border-white/20 text-white placeholder-white/50" placeholder="Your Name" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: #fff;">
+                        <input type="email" class="form-input" placeholder="Email Address" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: #fff;">
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <input type="text" class="form-input" placeholder="Preferred Date" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: #fff;" onfocus="this.type='date'" onblur="if(!this.value)this.type='text'">
+                        <select class="form-input appearance-none" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: #fff;">
+                            <option value="" disabled selected style="color: #999;">Guest Count</option>
+                            <option style="color: #1A1F36;">Up to 20</option>
+                            <option style="color: #1A1F36;">20 &ndash; 50</option>
+                            <option style="color: #1A1F36;">50 &ndash; 80</option>
+                            <option style="color: #1A1F36;">80 &ndash; 120</option>
+                        </select>
+                    </div>
+                    <textarea class="form-input" rows="3" placeholder="Tell us about your dream day..." style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: #fff;"></textarea>
+                    <button type="submit" class="btn-gold w-full py-3 rounded text-sm font-semibold tracking-wider uppercase cursor-pointer">
+                        Send Enquiry
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ===== 7. DINING ===== -->
+<section id="dining" class="bg-cream py-20 md:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14 section-heading">
+            <p class="font-script text-gold text-xl mb-2">Dining</p>
+            <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-semibold text-navy mb-4">Taste Jersey</h2>
+            <div class="gold-line mx-auto mb-6"></div>
+            <p class="text-charcoal text-base md:text-lg max-w-2xl mx-auto">
+                From freshly caught seafood to island-grown produce, every meal celebrates Jersey&rsquo;s rich culinary heritage.
+            </p>
+        </div>
+
+        <!-- Breakfast: Image Left, Text Right -->
+        <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-16 section-heading">
+            <div class="rounded overflow-hidden shadow-lg aspect-[4/3]">
+                <img src="assets/dining/breakfast.jpg" alt="Full English breakfast with local Jersey produce" class="img-cover" loading="lazy">
+            </div>
+            <div>
+                <h3 class="font-heading text-2xl font-semibold text-navy mb-3">Start Your Day</h3>
+                <div class="gold-line mb-6"></div>
+                <p class="text-charcoal leading-relaxed mb-4">
+                    Wake to the aroma of freshly brewed coffee and a breakfast spread that has earned its own following. Our award-winning full English features free-range eggs from a local farm, Jersey Royal potatoes, and artisan bread baked fresh each morning.
+                </p>
+                <p class="text-charcoal leading-relaxed">
+                    Prefer something lighter? Choose from smoked salmon with cream cheese, seasonal fruit, homemade granola with Jersey cream, or fluffy pancakes with maple syrup and crispy bacon.
+                </p>
+                <p class="text-gold font-semibold mt-4">Included with every stay</p>
+            </div>
+        </div>
+
+        <!-- Bar: Text Left, Image Right -->
+        <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-16 section-heading">
+            <div class="order-2 lg:order-1">
+                <h3 class="font-heading text-2xl font-semibold text-navy mb-3">Unwind</h3>
+                <div class="gold-line mb-6"></div>
+                <p class="text-charcoal leading-relaxed mb-4">
+                    As the sun dips behind Elizabeth Castle, retreat to our lounge bar for handcrafted cocktails and locally inspired drinks. Our bartenders mix classic favourites alongside Jersey specials &mdash; try the La Haule Sundowner with local apple brandy and fresh citrus.
+                </p>
+                <p class="text-charcoal leading-relaxed">
+                    Pair your drink with a selection of bar bites: Jersey crab croquettes, truffle fries, or a sharing board of island cheeses and charcuterie. Open daily from 11am to late.
+                </p>
+            </div>
+            <div class="order-1 lg:order-2 rounded overflow-hidden shadow-lg aspect-[4/3]">
+                <img src="assets/dining/bar.jpg" alt="Stylish lounge bar with handcrafted cocktails" class="img-cover" loading="lazy">
+            </div>
+        </div>
+
+        <!-- Afternoon Tea: Image Left, Text Right -->
+        <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center section-heading">
+            <div class="rounded overflow-hidden shadow-lg aspect-[4/3]">
+                <img src="assets/misc/lounge.jpg" alt="Elegant lounge set for afternoon tea service" class="img-cover" loading="lazy">
+            </div>
+            <div>
+                <h3 class="font-heading text-2xl font-semibold text-navy mb-3">Afternoon Tea</h3>
+                <div class="gold-line mb-6"></div>
+                <p class="text-charcoal leading-relaxed mb-4">
+                    A Jersey tradition reimagined. Settle into our sun-drenched lounge or the garden terrace for a three-tier afternoon tea featuring delicate finger sandwiches, freshly baked scones with Jersey clotted cream and local jam, and an exquisite selection of patisserie.
+                </p>
+                <p class="text-charcoal leading-relaxed">
+                    Upgrade to our Champagne Tea for that special celebration. Available Thursday to Sunday, booking recommended.
+                </p>
+                <p class="text-gold font-semibold text-lg mt-4">From &pound;32 per person</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ===== 8. GALLERY PREVIEW ===== -->
+<section id="gallery" class="bg-white py-20 md:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-10 section-heading">
+            <p class="font-script text-gold text-xl mb-2">Gallery</p>
+            <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-semibold text-navy mb-4">Explore La Haule</h2>
+            <div class="gold-line mx-auto mb-8"></div>
+        </div>
+
+        <!-- Image grid -->
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5 section-heading">
+            <div class="rounded overflow-hidden aspect-[4/3] gallery-img cursor-pointer">
+                <img src="assets/rooms/suite-2.jpg" alt="Luxury suite interior" class="img-cover" loading="lazy">
+            </div>
+            <div class="rounded overflow-hidden aspect-[4/3] gallery-img cursor-pointer">
+                <img src="assets/location/bay-view.jpg" alt="Panoramic bay view from hotel" class="img-cover" loading="lazy">
+            </div>
+            <div class="rounded overflow-hidden aspect-[4/3] gallery-img cursor-pointer">
+                <img src="assets/dining/breakfast.jpg" alt="Award-winning breakfast" class="img-cover" loading="lazy">
+            </div>
+            <div class="rounded overflow-hidden aspect-[4/3] gallery-img cursor-pointer">
+                <img src="assets/misc/leisure-1.jpg" alt="Heated outdoor pool" class="img-cover" loading="lazy">
+            </div>
+            <div class="rounded overflow-hidden aspect-[4/3] gallery-img cursor-pointer">
+                <img src="assets/location/night-1.jpg" alt="La Haule Manor at night" class="img-cover" loading="lazy">
+            </div>
+            <div class="rounded overflow-hidden aspect-[4/3] gallery-img cursor-pointer">
+                <img src="assets/rooms/superior-2.jpg" alt="Superior room with elegant decor" class="img-cover" loading="lazy">
+            </div>
+        </div>
+
+        <div class="text-center mt-10">
+            <a href="#" class="btn-gold inline-block px-8 py-3 rounded text-sm font-semibold tracking-wider uppercase cursor-pointer">View Full Gallery</a>
+        </div>
+    </div>
+</section>
+
+
+<!-- ===== 9. THINGS TO DO ===== -->
+<section id="things-to-do" class="bg-cream py-20 md:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14 section-heading">
+            <p class="font-script text-gold text-xl mb-2">Explore</p>
+            <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-semibold text-navy mb-4">Discover Jersey</h2>
+            <div class="gold-line mx-auto mb-6"></div>
+            <p class="text-charcoal text-base md:text-lg max-w-2xl mx-auto">
+                From pristine beaches to ancient castles, Jersey packs a world of experiences into a beautiful island just nine miles by five.
+            </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 section-heading">
+            <!-- Beaches -->
+            <div class="bg-white rounded shadow-sm card-lift p-7 cursor-pointer">
+                <div class="w-12 h-12 bg-gold/10 rounded flex items-center justify-center mb-5">
+                    <i data-lucide="umbrella" class="w-6 h-6 text-gold"></i>
+                </div>
+                <h3 class="font-heading text-xl font-semibold text-navy mb-2">Beaches</h3>
+                <p class="text-charcoal text-sm leading-relaxed mb-3">
+                    Jersey boasts some of Europe&rsquo;s finest beaches. St Brelade&rsquo;s Bay is a 5-minute drive, while the dramatic north coast cliffs offer wilder shores and rock pools.
+                </p>
+                <p class="text-gold text-xs font-semibold">St Brelade&rsquo;s Bay &mdash; 5 min drive</p>
+            </div>
+
+            <!-- History -->
+            <div class="bg-white rounded shadow-sm card-lift p-7 cursor-pointer">
+                <div class="w-12 h-12 bg-gold/10 rounded flex items-center justify-center mb-5">
+                    <i data-lucide="landmark" class="w-6 h-6 text-gold"></i>
+                </div>
+                <h3 class="font-heading text-xl font-semibold text-navy mb-2">History</h3>
+                <p class="text-charcoal text-sm leading-relaxed mb-3">
+                    Walk across the causeway to Elizabeth Castle, explore the Jersey War Tunnels, or discover 6,000 years of history at La Hougue Bie &mdash; one of Europe&rsquo;s finest passage graves.
+                </p>
+                <p class="text-gold text-xs font-semibold">Elizabeth Castle &mdash; visible from hotel</p>
+            </div>
+
+            <!-- Nature -->
+            <div class="bg-white rounded shadow-sm card-lift p-7 cursor-pointer">
+                <div class="w-12 h-12 bg-gold/10 rounded flex items-center justify-center mb-5">
+                    <i data-lucide="trees" class="w-6 h-6 text-gold"></i>
+                </div>
+                <h3 class="font-heading text-xl font-semibold text-navy mb-2">Nature</h3>
+                <p class="text-charcoal text-sm leading-relaxed mb-3">
+                    Spot puffins at Les &Eacute;crehous, stroll through the stunning Durrell Wildlife Conservation Trust, or explore 50 miles of coastal paths with wildflowers and sea views.
+                </p>
+                <p class="text-gold text-xs font-semibold">Durrell Wildlife &mdash; 15 min drive</p>
+            </div>
+
+            <!-- Food & Drink -->
+            <div class="bg-white rounded shadow-sm card-lift p-7 cursor-pointer">
+                <div class="w-12 h-12 bg-gold/10 rounded flex items-center justify-center mb-5">
+                    <i data-lucide="grape" class="w-6 h-6 text-gold"></i>
+                </div>
+                <h3 class="font-heading text-xl font-semibold text-navy mb-2">Food &amp; Drink</h3>
+                <p class="text-charcoal text-sm leading-relaxed mb-3">
+                    Jersey is a foodie island. Visit the Central Market, sample Jersey Royals and fresh oysters at harbourside restaurants, or tour La Mare Wine Estate.
+                </p>
+                <p class="text-gold text-xs font-semibold">Central Market &mdash; 10 min drive</p>
+            </div>
+
+            <!-- Adventure -->
+            <div class="bg-white rounded shadow-sm card-lift p-7 cursor-pointer">
+                <div class="w-12 h-12 bg-gold/10 rounded flex items-center justify-center mb-5">
+                    <i data-lucide="bike" class="w-6 h-6 text-gold"></i>
+                </div>
+                <h3 class="font-heading text-xl font-semibold text-navy mb-2">Adventure</h3>
+                <p class="text-charcoal text-sm leading-relaxed mb-3">
+                    Kayak around the coastline, try coasteering, paddleboard at sunset, or hire bikes to explore quiet green lanes. Jersey&rsquo;s compact size makes everything accessible.
+                </p>
+                <p class="text-gold text-xs font-semibold">Bike hire available nearby</p>
+            </div>
+
+            <!-- Family -->
+            <div class="bg-white rounded shadow-sm card-lift p-7 cursor-pointer">
+                <div class="w-12 h-12 bg-gold/10 rounded flex items-center justify-center mb-5">
+                    <i data-lucide="baby" class="w-6 h-6 text-gold"></i>
+                </div>
+                <h3 class="font-heading text-xl font-semibold text-navy mb-2">Family</h3>
+                <p class="text-charcoal text-sm leading-relaxed mb-3">
+                    Jersey Zoo, aMaizin! Adventure Park, and miles of safe sandy beaches make the island a family paradise. Our heated pool is a firm favourite with little ones too.
+                </p>
+                <p class="text-gold text-xs font-semibold">Jersey Zoo &mdash; 15 min drive</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ===== 10. LOCATION ===== -->
+<section id="location" class="bg-white">
+    <div class="grid lg:grid-cols-2 min-h-[500px]">
+        <!-- Left: Directions -->
+        <div class="flex items-center">
+            <div class="p-8 md:p-12 lg:p-16 max-w-xl section-heading">
+                <p class="font-script text-gold text-xl mb-2">Getting Here</p>
+                <h2 class="font-heading text-3xl sm:text-4xl font-semibold text-navy mb-4">Find Us</h2>
+                <div class="gold-line mb-8"></div>
+                <p class="text-charcoal leading-relaxed mb-6">
+                    La Haule Manor sits on the beautiful coastal road overlooking St Aubin&rsquo;s Bay, perfectly positioned between St Helier and St Brelade.
+                </p>
+                <div class="space-y-5">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 bg-gold/10 rounded flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <i data-lucide="plane" class="w-5 h-5 text-gold"></i>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-navy text-sm">Jersey Airport</p>
+                            <p class="text-charcoal text-sm">10 minutes &mdash; complimentary airport transfer</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 bg-gold/10 rounded flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <i data-lucide="ship" class="w-5 h-5 text-gold"></i>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-navy text-sm">Elizabeth Harbour</p>
+                            <p class="text-charcoal text-sm">15 minutes by car or taxi</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 bg-gold/10 rounded flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <i data-lucide="car" class="w-5 h-5 text-gold"></i>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-navy text-sm">Free Parking</p>
+                            <p class="text-charcoal text-sm">Complimentary on-site parking for all guests</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 bg-gold/10 rounded flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <i data-lucide="bus" class="w-5 h-5 text-gold"></i>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-navy text-sm">Bus Route 12</p>
+                            <p class="text-charcoal text-sm">Stops directly outside the hotel</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 p-5 bg-navy rounded">
+                    <p class="text-gold text-sm font-semibold mb-1">La Haule Manor</p>
+                    <p class="text-white/80 text-sm">La Route de la Haule, St Brelade, Jersey JE3 8BS</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right: Map placeholder -->
+        <div class="bg-cream flex items-center justify-center min-h-[400px] relative">
+            <div class="text-center px-8">
+                <div class="w-20 h-20 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i data-lucide="map-pin" class="w-10 h-10 text-gold"></i>
+                </div>
+                <p class="font-heading text-xl text-navy font-semibold mb-2">Interactive Map</p>
+                <p class="text-charcoal text-sm">Coming Soon</p>
+                <p class="text-charcoal/60 text-xs mt-3 max-w-xs mx-auto">St Aubin&rsquo;s Bay, Jersey &mdash; overlooking Elizabeth Castle and the beautiful south coast</p>
+            </div>
+            <!-- Decorative elements -->
+            <div class="absolute top-1/4 left-1/3 w-3 h-3 bg-gold/20 rounded-full"></div>
+            <div class="absolute top-1/2 right-1/4 w-2 h-2 bg-gold/15 rounded-full"></div>
+            <div class="absolute bottom-1/3 left-1/4 w-2.5 h-2.5 bg-gold/15 rounded-full"></div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ===== 11. REVIEWS ===== -->
+<section class="bg-navy py-20 md:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14 section-heading">
+            <p class="font-script text-gold text-xl mb-2">Testimonials</p>
+            <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-semibold text-white mb-4">Guest Reviews</h2>
+            <div class="gold-line mx-auto mb-6"></div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 mb-12 section-heading">
+            <!-- Review 1 -->
+            <div class="bg-white/5 rounded p-7 border border-white/10 card-lift cursor-pointer">
+                <div class="flex gap-1 mb-4">
+                    <i data-lucide="star" class="w-5 h-5 star fill-gold"></i>
+                    <i data-lucide="star" class="w-5 h-5 star fill-gold"></i>
+                    <i data-lucide="star" class="w-5 h-5 star fill-gold"></i>
+                    <i data-lucide="star" class="w-5 h-5 star fill-gold"></i>
+                    <i data-lucide="star" class="w-5 h-5 star fill-gold"></i>
+                </div>
+                <p class="text-white/80 leading-relaxed text-sm italic mb-5">
+                    &ldquo;An absolute gem. The views from our suite were breathtaking &mdash; waking up to the bay each morning was magical. The staff remembered our names from the first moment and nothing was too much trouble. We&rsquo;ve already booked our return.&rdquo;
+                </p>
+                <div class="flex items-center gap-3 border-t border-white/10 pt-4">
+                    <div class="w-10 h-10 bg-gold/20 rounded-full flex items-center justify-center">
+                        <span class="text-gold font-semibold text-sm">SE</span>
+                    </div>
+                    <div>
+                        <p class="text-white text-sm font-semibold">Sarah &amp; Edward</p>
+                        <p class="text-white/50 text-xs">November 2025</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="bg-white/5 rounded p-7 border border-white/10 card-lift cursor-pointer">
+                <div class="flex gap-1 mb-4">
+                    <i data-lucide="star" class="w-5 h-5 star fill-gold"></i>
+                    <i data-lucide="star" class="w-5 h-5 star fill-gold"></i>
+                    <i data-lucide="star" class="w-5 h-5 star fill-gold"></i>
+                    <i data-lucide="star" class="w-5 h-5 star fill-gold"></i>
+                    <i data-lucide="star" class="w-5 h-5 star fill-gold"></i>
+                </div>
+                <p class="text-white/80 leading-relaxed text-sm italic mb-5">
+                    &ldquo;The breakfast alone is worth the trip! Genuinely the best hotel breakfast we&rsquo;ve ever had. The pool area with bay views is wonderful and the room was immaculate. A truly special place that feels like a well-kept secret.&rdquo;
+                </p>
+                <div class="flex items-center gap-3 border-t border-white/10 pt-4">
+                    <div class="w-10 h-10 bg-gold/20 rounded-full flex items-center justify-center">
+                        <span class="text-gold font-semibold text-sm">JM</span>
+                    </div>
+                    <div>
+                        <p class="text-white text-sm font-semibold">James M.</p>
+                        <p class="text-white/50 text-xs">September 2025</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Review 3 -->
+            <div class="bg-white/5 rounded p-7 border border-white/10 card-lift cursor-pointer">
+                <div class="flex gap-1 mb-4">
+                    <i data-lucide="star" class="w-5 h-5 star fill-gold"></i>
+                    <i data-lucide="star" class="w-5 h-5 star fill-gold"></i>
+                    <i data-lucide="star" class="w-5 h-5 star fill-gold"></i>
+                    <i data-lucide="star" class="w-5 h-5 star fill-gold"></i>
+                    <i data-lucide="star" class="w-5 h-5 star fill-gold"></i>
+                </div>
+                <p class="text-white/80 leading-relaxed text-sm italic mb-5">
+                    &ldquo;We held our wedding reception here and it was absolutely perfect. The team went above and beyond to make our day special. The photos with the bay as a backdrop were stunning. Our guests are still talking about it months later.&rdquo;
+                </p>
+                <div class="flex items-center gap-3 border-t border-white/10 pt-4">
+                    <div class="w-10 h-10 bg-gold/20 rounded-full flex items-center justify-center">
+                        <span class="text-gold font-semibold text-sm">OL</span>
+                    </div>
+                    <div>
+                        <p class="text-white text-sm font-semibold">Olivia &amp; Liam</p>
+                        <p class="text-white/50 text-xs">August 2025</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Review badges -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-6 section-heading">
+            <div class="bg-white/10 rounded px-6 py-4 flex items-center gap-4 border border-white/10">
+                <div class="text-center">
+                    <p class="text-2xl font-bold text-gold">9.4</p>
+                    <p class="text-xs text-white/60">out of 10</p>
+                </div>
+                <div class="border-l border-white/20 pl-4">
+                    <p class="text-sm font-semibold text-white">Booking.com</p>
+                    <p class="text-xs text-white/60">Superb</p>
+                </div>
+            </div>
+            <div class="bg-white/10 rounded px-6 py-4 flex items-center gap-4 border border-white/10">
+                <div class="text-center">
+                    <div class="flex gap-0.5 justify-center">
+                        <i data-lucide="circle" class="w-3.5 h-3.5 text-green-400 fill-green-400"></i>
+                        <i data-lucide="circle" class="w-3.5 h-3.5 text-green-400 fill-green-400"></i>
+                        <i data-lucide="circle" class="w-3.5 h-3.5 text-green-400 fill-green-400"></i>
+                        <i data-lucide="circle" class="w-3.5 h-3.5 text-green-400 fill-green-400"></i>
+                        <i data-lucide="circle" class="w-3.5 h-3.5 text-green-800 fill-green-800"></i>
+                    </div>
+                </div>
+                <div class="border-l border-white/20 pl-4">
+                    <p class="text-sm font-semibold text-white">TripAdvisor</p>
+                    <p class="text-xs text-white/60">Excellent</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ===== 12. FOOTER ===== -->
+<footer id="contact" class="bg-charcoal text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+            <!-- Brand -->
+            <div class="md:col-span-2 lg:col-span-1">
+                <a href="#" class="font-script text-gold text-3xl block mb-4">La Haule Manor</a>
+                <p class="text-white/60 text-sm leading-relaxed mb-4">
+                    A 5-star Georgian manor hotel overlooking St Aubin&rsquo;s Bay, Jersey. Welcoming guests since 1796.
+                </p>
+                <div class="flex gap-3">
+                    <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-gold transition-colors duration-200 cursor-pointer" aria-label="Instagram">
+                        <i data-lucide="instagram" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-gold transition-colors duration-200 cursor-pointer" aria-label="Facebook">
+                        <i data-lucide="facebook" class="w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h4 class="font-heading text-lg font-semibold text-gold mb-5">Quick Links</h4>
+                <ul class="space-y-3 text-sm text-white/60">
+                    <li><a href="#accommodation" class="hover:text-gold transition-colors duration-200">Accommodation</a></li>
+                    <li><a href="#weddings" class="hover:text-gold transition-colors duration-200">Weddings</a></li>
+                    <li><a href="#dining" class="hover:text-gold transition-colors duration-200">Dining</a></li>
+                    <li><a href="#things-to-do" class="hover:text-gold transition-colors duration-200">Things to Do</a></li>
+                    <li><a href="#self-catering" class="hover:text-gold transition-colors duration-200">Self Catering</a></li>
+                    <li><a href="#" class="hover:text-gold transition-colors duration-200">Prices</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact -->
+            <div>
+                <h4 class="font-heading text-lg font-semibold text-gold mb-5">Contact</h4>
+                <ul class="space-y-3 text-sm text-white/60">
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="map-pin" class="w-4 h-4 mt-0.5 flex-shrink-0 text-white/40"></i>
+                        <span>La Route de la Haule<br>St Brelade, Jersey JE3 8BS</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i data-lucide="phone" class="w-4 h-4 flex-shrink-0 text-white/40"></i>
+                        <a href="tel:01534746778" class="hover:text-gold transition-colors duration-200">01534 746778</a>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i data-lucide="mail" class="w-4 h-4 flex-shrink-0 text-white/40"></i>
+                        <a href="mailto:info@lahaulemanor.com" class="hover:text-gold transition-colors duration-200">info@lahaulemanor.com</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Newsletter -->
+            <div>
+                <h4 class="font-heading text-lg font-semibold text-gold mb-5">Newsletter</h4>
+                <p class="text-white/60 text-sm mb-4">Special offers and Jersey inspiration, delivered to your inbox.</p>
+                <form onsubmit="event.preventDefault();" class="flex gap-2">
+                    <input type="email" placeholder="Your email" class="flex-1 bg-white/10 border border-white/20 rounded px-4 py-2.5 text-sm text-white placeholder-white/40 focus:outline-none focus:border-gold transition-colors duration-200">
+                    <button type="submit" class="btn-gold px-5 py-2.5 rounded text-sm font-semibold whitespace-nowrap cursor-pointer">Subscribe</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Bottom bar -->
+        <div class="border-t border-white/10 mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-white/40 text-xs">&copy; 2026 La Haule Manor. All rights reserved.</p>
+            <div class="flex gap-6 text-xs text-white/40">
+                <a href="#" class="hover:text-gold transition-colors duration-200">Privacy Policy</a>
+                <a href="#" class="hover:text-gold transition-colors duration-200">Terms &amp; Conditions</a>
+                <a href="#" class="hover:text-gold transition-colors duration-200">Cookie Policy</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<!-- ===== FLOATING DESIGN SWITCHER ===== -->
+<div class="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-white rounded-full shadow-lg px-2 py-2" role="navigation" aria-label="Design option switcher">
+    <div class="switcher-btn">
+        <a href="option-a.html" class="w-10 h-10 rounded-full bg-navy text-gold flex items-center justify-center text-sm font-bold shadow-md cursor-pointer" aria-label="Option A: Classic Luxury (current)">
+            A
+        </a>
+        <span class="tooltip">Classic Luxury</span>
+    </div>
+    <div class="switcher-btn">
+        <a href="option-b.html" class="w-10 h-10 rounded-full border-2 border-charcoal/30 flex items-center justify-center text-sm font-bold text-charcoal hover:border-gold hover:text-gold transition-all duration-200 cursor-pointer" aria-label="View Option B: Coastal Contemporary">
+            B
+        </a>
+        <span class="tooltip">Coastal Contemporary</span>
+    </div>
+    <div class="switcher-btn">
+        <a href="option-c.html" class="w-10 h-10 rounded-full border-2 border-charcoal/30 flex items-center justify-center text-sm font-bold text-charcoal hover:border-gold hover:text-gold transition-all duration-200 cursor-pointer" aria-label="View Option C: Boutique Personal">
+            C
+        </a>
+        <span class="tooltip">Boutique Personal</span>
+    </div>
+</div>
+
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // --- Sticky Nav: transparent -> dark navy on scroll ---
+    const navbar = document.getElementById('navbar');
+    const heroHeight = window.innerHeight * 0.15;
+
+    function updateNav() {
+        if (window.scrollY > heroHeight) {
+            navbar.classList.remove('nav-transparent');
+            navbar.classList.add('nav-scrolled');
+        } else {
+            navbar.classList.remove('nav-scrolled');
+            navbar.classList.add('nav-transparent');
+        }
+    }
+    window.addEventListener('scroll', updateNav, { passive: true });
+    updateNav();
+
+    // --- Mobile overlay menu ---
+    const mobileToggle = document.getElementById('mobileToggle');
+    const mobileClose = document.getElementById('mobileClose');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+
+    mobileToggle.addEventListener('click', () => {
+        mobileOverlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    });
+
+    mobileClose.addEventListener('click', () => {
+        mobileOverlay.classList.remove('open');
+        document.body.style.overflow = '';
+    });
+
+    // Close on link click
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileOverlay.classList.remove('open');
+            document.body.style.overflow = '';
+        });
+    });
+
+    // --- Scroll animations (section-heading + card-lift) ---
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -40px 0px'
+    });
+
+    document.querySelectorAll('.section-heading, .card-lift').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight + 100) {
+            // Already in or near viewport — show immediately
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+        } else {
+            // Below viewport — set up animation
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        }
+    });
+
+    // --- Smooth scroll for anchor links ---
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            const targetEl = document.querySelector(targetId);
+            if (targetEl) {
+                e.preventDefault();
+                const navHeight = navbar.offsetHeight;
+                const targetPosition = targetEl.getBoundingClientRect().top + window.scrollY - navHeight - 20;
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

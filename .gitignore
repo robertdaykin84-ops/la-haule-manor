@@ -1,0 +1,9 @@
+# Development screenshots
+*.png
+hero-cropped*.jpg
+hero-original.jpg
+hero-patched*.jpg
+
+# OS files
+.DS_Store
+Thumbs.db
