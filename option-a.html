@@ -298,8 +298,27 @@
                 transform: none !important;
                 left: auto !important;
                 width: 100%;
-                padding: 0 1rem 1.5rem;
+                padding: 0 0.75rem 1rem;
                 margin-top: auto;
+            }
+            #booking .bg-white {
+                padding: 1rem !important;
+            }
+            #booking .grid {
+                grid-template-columns: 1fr 1fr !important;
+                gap: 0.5rem !important;
+            }
+            #booking .form-input {
+                padding: 8px 10px;
+                font-size: 14px;
+                height: 42px;
+            }
+            #booking button {
+                grid-column: 1 / -1;
+                height: 44px;
+            }
+            #booking .sm\:col-span-2 {
+                grid-column: 1 / -1 !important;
             }
             /* Switcher: compact on mobile */
             .design-switcher {

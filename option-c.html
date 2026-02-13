@@ -251,6 +251,28 @@
 
         /* ─── Mobile Optimisations ─── */
         @media (max-width: 639px) {
+            /* Booking: compact 2-col grid on mobile */
+            .booking-form-c {
+                grid-template-columns: 1fr 1fr !important;
+                gap: 0.5rem !important;
+            }
+            .booking-form-c input,
+            .booking-form-c select {
+                padding: 8px 10px !important;
+                font-size: 14px !important;
+                height: 42px;
+            }
+            .booking-container-c {
+                padding: 1.25rem !important;
+            }
+            .booking-container-c h3 {
+                font-size: 1.25rem !important;
+                margin-bottom: 1rem !important;
+            }
+            .booking-container-c button {
+                padding: 0.75rem 2rem !important;
+            }
+            /* Switcher */
             .design-switcher-c {
                 bottom: 0.75rem !important;
                 right: 0.75rem !important;
@@ -417,9 +439,9 @@
 
             <!-- Booking form -->
             <div class="max-w-4xl mx-auto reveal">
-                <div class="bg-white rounded-xl shadow-lg p-8 md:p-10 border border-dusty-rose/20">
+                <div class="booking-container-c bg-white rounded-xl shadow-lg p-8 md:p-10 border border-dusty-rose/20">
                     <h3 class="font-heading text-2xl text-charcoal text-center mb-8 font-semibold">Find Your Perfect Stay</h3>
-                    <form class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                    <form class="booking-form-c grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
                         <div>
                             <label class="block text-sm font-medium text-rich-brown mb-1.5">Arrival</label>
                             <input type="date" class="form-input w-full border border-dusty-rose/40 rounded-lg px-4 py-3 text-charcoal bg-cream/50 font-body transition-all duration-200">
