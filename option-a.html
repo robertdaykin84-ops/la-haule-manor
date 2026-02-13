@@ -289,37 +289,9 @@
             }
         }
         @media (max-width: 639px) {
-            /* Booking: flow inline on mobile instead of absolute overlap */
-            .hero-section {
-                flex-direction: column !important;
-            }
-            #booking {
-                position: relative !important;
-                transform: none !important;
-                left: auto !important;
-                width: 100%;
-                padding: 0 0.75rem 1rem;
-                margin-top: auto;
-            }
-            #booking .bg-white {
-                padding: 1rem !important;
-            }
-            #booking .grid {
-                grid-template-columns: 1fr 1fr !important;
-                gap: 0.5rem !important;
-            }
-            #booking .form-input {
-                padding: 8px 10px;
-                font-size: 14px;
-                height: 42px;
-            }
-            #booking button {
-                grid-column: 1 / -1;
-                height: 44px;
-            }
-            #booking .sm\:col-span-2 {
-                grid-column: 1 / -1 !important;
-            }
+            /* Hide full booking form on mobile, show compact CTA instead */
+            #booking { display: none !important; }
+            .mobile-booking-cta { display: flex !important; }
             /* Switcher: compact on mobile */
             .design-switcher {
                 bottom: 0.75rem !important;
@@ -457,6 +429,14 @@
             </div>
             <p class="text-center text-gold text-xs font-medium mt-4 tracking-wide">Book direct &mdash; best rates guaranteed</p>
         </div>
+    </div>
+
+    <!-- Mobile-only compact booking CTA -->
+    <div class="mobile-booking-cta hidden absolute bottom-14 left-0 right-0 z-20 flex-col items-center gap-3 px-6">
+        <a href="#booking" class="btn-gold w-full max-w-xs py-3.5 rounded text-[0.75rem] font-semibold tracking-[0.14em] uppercase text-center block cursor-pointer shadow-lg">
+            Check Availability
+        </a>
+        <p class="text-white/90 text-xs font-medium tracking-wide" style="text-shadow: 0 1px 4px rgba(0,0,0,0.5);">Book direct &mdash; best rates guaranteed</p>
     </div>
 </section>
 
