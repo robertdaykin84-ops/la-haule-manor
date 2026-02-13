@@ -248,6 +248,23 @@
             visibility: visible;
             opacity: 1;
         }
+
+        /* ─── Mobile Optimisations ─── */
+        @media (max-width: 639px) {
+            .design-switcher-c {
+                bottom: 0.75rem !important;
+                right: 0.75rem !important;
+            }
+            .design-switcher-c > div {
+                padding: 0.375rem !important;
+                gap: 0.25rem !important;
+            }
+            .design-switcher-c .switcher-btn {
+                width: 2rem;
+                height: 2rem;
+                font-size: 0.65rem;
+            }
+        }
     </style>
 </head>
 
@@ -373,7 +390,7 @@
                     <p class="font-body text-lg text-rich-brown/90 leading-relaxed mb-6">
                         Step through our doors and feel the warmth of a true Jersey welcome. A chilled glass of bubbly awaits you on the sun-dappled terrace, where the sweep of St Aubin's Bay unfolds before you like a painting come to life.
                     </p>
-                    <p class="font-body text-lg text-rich-brown/90 leading-relaxed mb-6">
+                    <p class="font-body text-lg text-rich-brown/90 leading-relaxed mb-6 hidden md:block">
                         Since 1796, these Georgian walls have sheltered travellers, dreamers, and those simply seeking a little beauty in their days. Every corner holds a story — from the grand hallway with its original flagstones to the intimate lounges where afternoon light pours through tall sash windows.
                     </p>
                     <p class="font-body text-lg text-rich-brown/90 leading-relaxed mb-8">
@@ -1066,7 +1083,7 @@
     <!-- ============================================ -->
     <!-- FLOATING DESIGN SWITCHER                      -->
     <!-- ============================================ -->
-    <div class="fixed bottom-6 right-6 z-50">
+    <div class="design-switcher-c fixed bottom-6 right-6 z-50">
         <div class="bg-cream rounded-2xl shadow-xl border border-dusty-rose/20 p-3 flex items-center space-x-2">
             <!-- A Button -->
             <div class="tooltip-trigger relative">

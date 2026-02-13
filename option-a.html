@@ -266,6 +266,54 @@
             transform: rotate(45deg);
             display: block;
         }
+
+        /* ─── Mobile Optimisations ─── */
+        @media (max-width: 767px) {
+            /* Hero: Approach 3 stronger gradient for text readability */
+            .hero-gradient {
+                background: linear-gradient(
+                    to bottom,
+                    rgba(0, 0, 0, 0.35) 0%,
+                    rgba(0, 0, 0, 0.45) 30%,
+                    rgba(0, 0, 0, 0.35) 70%,
+                    rgba(26, 31, 54, 0.4) 100%
+                ) !important;
+            }
+            .hero-h1 {
+                -webkit-text-stroke: 0 !important;
+                text-shadow: 0 3px 16px rgba(0,0,0,0.6), 0 1px 4px rgba(0,0,0,0.4) !important;
+            }
+            .hero-subtitle {
+                -webkit-text-stroke: 0 !important;
+                text-shadow: 0 2px 10px rgba(0,0,0,0.5), 0 1px 3px rgba(0,0,0,0.4) !important;
+            }
+        }
+        @media (max-width: 639px) {
+            /* Booking: flow inline on mobile instead of absolute overlap */
+            .hero-section {
+                flex-direction: column !important;
+            }
+            #booking {
+                position: relative !important;
+                transform: none !important;
+                left: auto !important;
+                width: 100%;
+                padding: 0 1rem 1.5rem;
+                margin-top: auto;
+            }
+            /* Switcher: compact on mobile */
+            .design-switcher {
+                bottom: 0.75rem !important;
+                right: 0.75rem !important;
+                padding: 0.25rem !important;
+                gap: 0.125rem !important;
+            }
+            .design-switcher .switcher-btn a {
+                width: 2rem;
+                height: 2rem;
+                font-size: 0.65rem;
+            }
+        }
     </style>
 </head>
 <body class="bg-cream">
@@ -339,14 +387,14 @@
 <!-- ===== 2. HERO ===== -->
 <section class="hero-section relative flex items-center justify-center min-h-screen">
     <!-- Dark overlay for luxury feel -->
-    <div class="absolute inset-0 bg-gradient-to-b from-navy/20 via-transparent to-navy/30"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-navy/20 via-transparent to-navy/30 hero-gradient"></div>
 
     <!-- Hero content -->
-    <div class="relative z-10 text-center px-4 max-w-4xl mx-auto pt-20 pb-48 md:pb-56">
-        <h1 class="font-lora text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-tight mb-6" style="-webkit-text-stroke: 1px rgba(0,0,0,0.35); text-shadow: 0 2px 12px rgba(0,0,0,0.5);">
+    <div class="relative z-10 text-center px-4 max-w-4xl mx-auto pt-20 pb-6 sm:pb-48 md:pb-56">
+        <h1 class="font-lora text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-tight mb-6 hero-h1" style="-webkit-text-stroke: 1px rgba(0,0,0,0.35); text-shadow: 0 2px 12px rgba(0,0,0,0.5);">
             Your Jersey Escape Awaits
         </h1>
-        <p class="font-raleway text-white text-xl sm:text-2xl md:text-3xl font-normal leading-relaxed max-w-3xl mx-auto" style="-webkit-text-stroke: 0.5px rgba(0,0,0,0.3); text-shadow: 0 2px 8px rgba(0,0,0,0.5), 0 1px 3px rgba(0,0,0,0.4);">
+        <p class="font-raleway text-white text-xl sm:text-2xl md:text-3xl font-normal leading-relaxed max-w-3xl mx-auto hero-subtitle" style="-webkit-text-stroke: 0.5px rgba(0,0,0,0.3); text-shadow: 0 2px 8px rgba(0,0,0,0.5), 0 1px 3px rgba(0,0,0,0.4);">
             A luxury Georgian manor with stunning bay views, heated pool, and the warmest welcome on the island
         </p>
     </div>
@@ -354,7 +402,7 @@
     <!-- ===== 3. BOOKING WIDGET ===== -->
     <div id="booking" class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-full max-w-4xl px-4 z-20">
         <div class="bg-white rounded shadow-xl p-6 md:p-8 border border-gold/20">
-            <div class="grid grid-cols-2 md:grid-cols-5 gap-4 items-end">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-3 sm:gap-4 items-end">
                 <div class="col-span-1">
                     <label class="block text-[0.65rem] font-semibold text-navy uppercase tracking-[0.12em] mb-2">Arrival</label>
                     <input type="date" class="form-input text-sm">
@@ -382,7 +430,7 @@
                         <option>4+ Rooms</option>
                     </select>
                 </div>
-                <div class="col-span-2 md:col-span-1">
+                <div class="sm:col-span-2 md:col-span-1">
                     <button class="btn-gold w-full py-3 rounded text-[0.7rem] font-semibold tracking-[0.12em] uppercase cursor-pointer">
                         Check Availability
                     </button>
@@ -395,7 +443,7 @@
 
 
 <!-- ===== 4. WELCOME ===== -->
-<section class="bg-cream pt-40 md:pt-44 pb-20 md:pb-28">
+<section class="bg-cream pt-10 sm:pt-40 md:pt-44 pb-20 md:pb-28">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center section-heading">
             <!-- Text -->
@@ -407,7 +455,7 @@
                     <p>
                         Perched above the golden sweep of St Aubin&rsquo;s Bay, La Haule Manor has been welcoming guests to Jersey since 1796. Our handsome Georgian manor blends timeless elegance with contemporary comfort, earning a coveted 5-star rating from Visit Jersey.
                     </p>
-                    <p>
+                    <p class="hidden md:block">
                         Every stay is personal here. From the moment you arrive, our small, dedicated team ensures you feel at home &mdash; whether you&rsquo;re unwinding by our heated outdoor pool with panoramic bay views, savouring a locally sourced breakfast, or simply breathing in the sea air from your private balcony.
                     </p>
                     <p>
@@ -1042,7 +1090,7 @@
 
 
 <!-- ===== FLOATING DESIGN SWITCHER ===== -->
-<div class="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-white rounded-full shadow-lg px-2 py-2" role="navigation" aria-label="Design option switcher">
+<div class="design-switcher fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-white rounded-full shadow-lg px-2 py-2" role="navigation" aria-label="Design option switcher">
     <div class="switcher-btn">
         <a href="option-a.html" class="w-10 h-10 rounded-full bg-navy text-gold flex items-center justify-center text-sm font-bold shadow-md cursor-pointer" aria-label="Option A: Classic Luxury (current)">
             A

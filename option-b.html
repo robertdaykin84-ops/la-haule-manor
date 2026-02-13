@@ -228,6 +228,21 @@
             border-color: #C5A572;
         }
 
+        /* ─── Mobile Optimisations ─── */
+        @media (max-width: 639px) {
+            .design-switcher {
+                bottom: 0.75rem !important;
+                right: 0.75rem !important;
+                padding: 4px !important;
+                gap: 4px !important;
+            }
+            .design-switcher .switcher-btn {
+                width: 2rem;
+                height: 2rem;
+                font-size: 0.65rem;
+            }
+        }
+
         /* Subtle fade-in animation */
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(24px); }
@@ -413,7 +428,7 @@
             <p class="font-body text-charcoal/80 text-base md:text-lg leading-relaxed mb-6">
                 Nestled on the shores of St Aubin's Bay since 1796, La Haule Manor is a distinguished Georgian manor that has been lovingly restored to offer five-star luxury in one of Jersey's most coveted locations. With panoramic views stretching across the bay to Elizabeth Castle, every stay is steeped in history and quiet grandeur.
             </p>
-            <p class="font-body text-charcoal/80 text-base md:text-lg leading-relaxed">
+            <p class="font-body text-charcoal/80 text-base md:text-lg leading-relaxed hidden md:block">
                 Our dedicated team provides the kind of personal, attentive service that transforms a hotel stay into something truly memorable. Whether you're strolling the harbour at St Aubin village just moments from our door, enjoying a sundowner on the terrace, or simply taking in the ever-changing tides from your room, La Haule Manor is a place to pause, breathe, and feel at home.
             </p>
         </div>
